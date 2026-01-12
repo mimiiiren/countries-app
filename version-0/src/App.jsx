@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import CountryDetail from "./pages/CountryDetail";
-import SavedCountries from "./pages/SavedCountries";
+import Home from "./pages/Home.jsx";
+import CountryDetail from "./pages/CountryDetail.jsx";
+import SavedCountries from "./pages/SavedCountries.jsx";
 import "./App.css";
 import data from "../localData.js";
 
@@ -26,7 +26,7 @@ function App() {
         {/* pass data to home component using countriesData as prop */}
         <Route path="/" element={<Home countriesData={data} />} />
         <Route path="/saved-countries" element={<SavedCountries />} />
-        {/* country-detail is url, countryName is a parameter for name.common */}
+        {/* country-detail is url, the : denotes route paramter countryName = name.common */}
         <Route
           path="/country-detail/:countryName"
           element={<CountryDetail />}
