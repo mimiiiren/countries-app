@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function CountryCard({ dataFromCard }) {
-  const { name, population, region, capital, flags } = dataFromCard;
+export default function CountryCard({ countriesData }) {
+  const { name, population, region, capital, flags } = countriesData;
   return (
     //   when country card is clicked, it will link to countryDetail page
     <Link
