@@ -64,6 +64,8 @@ export default function SavedCountries() {
           placeholder="Bio"
           cols="62"
           rows="10"
+          value={formData.bio}
+          onChange={handleChange}
           required
         />
         <br />
