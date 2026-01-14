@@ -23,17 +23,17 @@ header ul a {
 }
 .CountryCardContainer {
   display: grid;
-  max-width: 1500px;
+  width: 90%;
   grid-template-columns: 1fr;
-  gap: 10px;
   margin: auto;
 }
 .card {
   margin: 2rem 1rem;
   box-shadow: 1px 5px 5px 2px rgb(210, 209, 209);
   border-radius: 10px;
-  width: 300px;
-  height: 450px;
+  width: 400px;
+  height: fit-content;
+  padding-bottom: 1rem;
 }
 .card img {
   display: block;
@@ -49,9 +49,6 @@ header ul a {
 /* styling for saved-countries page */
 .saved-countries {
   margin: 2rem 0 0 2rem;
-}
-form {
-  
 }
 form input {
   width: 500px;
@@ -76,10 +73,34 @@ form button {
   width: 80px;
   color: rgb(225, 222, 222);
 }
+/* styling for CountryDetail page */
 
+.country-detail img{
+overflow: clip;
+width: 450px;
+border-radius: 10px;
+}
+.country-detail {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+width: 90%;
+margin: 2rem auto;
+}
+.country-detail button {
+  width: 90px;
+  height: 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px rgb(210, 209, 209);
+  border: solid 2px rgb(210, 209, 209);
+}
 @media (min-width: 540px) {
   .CountryCardContainer {
     grid-template-columns: 1fr 1fr;
+  }
+    .card {
+    width: 300px;
   }
   header h1 {
     font-size: 2rem;
@@ -89,6 +110,16 @@ form button {
   .CountryCardContainer {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .country-detail {
+  margin: none;
+}
+.country-detail img {
+    width: 500px;
+}
+.country-detail-container {
+  display: flex;
+  gap: 8rem;
+}
 }
 @media (min-width: 1100px) {
   .CountryCardContainer {

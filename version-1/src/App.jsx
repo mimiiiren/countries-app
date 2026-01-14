@@ -45,7 +45,7 @@ function App() {
         {/* country-detail is url, the : denotes route paramter countryName = name.common */}
         <Route
           path="/country-detail/:countryName"
-          element={<CountryDetail />}
+          element={<CountryDetail countriesData={countries} />}
         />
       </Routes>
     </div>
