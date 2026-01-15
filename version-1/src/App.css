@@ -35,6 +35,9 @@ header ul a {
   height: fit-content;
   padding-bottom: 1rem;
 }
+.card:hover {
+  box-shadow: 1px 1px 10px 10px rgb(182, 181, 181);
+}
 .card img {
   display: block;
   width: 100%;
@@ -69,7 +72,8 @@ form button {
   display: block;
   background-color: #7772CE;
   border: none;
-  height: 20px;
+  border-radius: 10px;
+  height: 30px;
   width: 80px;
   color: rgb(225, 222, 222);
 }

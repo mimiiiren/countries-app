@@ -17,7 +17,7 @@ export default function CountryDetail({ countriesData }) {
         <div className="card-bottom-content">
           <h1>{name.common}</h1>
           <button>Save</button>
-          <p>Population: {population}</p>
+          <p>Population: {population.toLocaleString()}</p>
           <p>Region: {region}</p>
           <p>Capital: {capital}</p>
         </div>

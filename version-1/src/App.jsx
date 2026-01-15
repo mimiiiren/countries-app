@@ -8,7 +8,7 @@ import localData from "../localData.js";
 
 function App() {
   // useState variables to store api data
-  const [countries, setCountries] = useState([localData]);
+  const [countries, setCountries] = useState([]);
 
   // asynchronous function
   // async/await go together, cleaner way of fetching api
@@ -25,6 +25,7 @@ function App() {
       setCountries(data);
     } catch (error) {
       console.log(error);
+      setCountries(localData);
     }
   };
   // run api function when page loads
