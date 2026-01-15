@@ -4,10 +4,11 @@ import CountryDetail from "./pages/CountryDetail.jsx";
 import SavedCountries from "./pages/SavedCountries.jsx";
 import "./App.css";
 import { useEffect, useState } from "react";
+import localData from "../localData.js";
 
 function App() {
   // useState variables to store api data
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState([localData]);
 
   // asynchronous function
   // async/await go together, cleaner way of fetching api
