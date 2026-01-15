@@ -6,18 +6,27 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
+  // useState variables to store api data
   const [countries, setCountries] = useState([]);
+
+  // asynchronous function
+  // async/await go together, cleaner way of fetching api
   const getCountriesApi = async () => {
+    // try/catch keyword handles any errors during api request
     try {
+      // await keywords waits for async operations to commplete
       const response = await fetch(
         `https://restcountries.com/v3.1/all?fields=name,flags,population,capital,region,cca3,borders`
       );
+      // store api response in data variable
       const data = await response.json();
+      // setter function updates value of countries variable to data
       setCountries(data);
     } catch (error) {
       console.log(error);
     }
   };
+  // run api function when page loads
   useEffect(() => {
     getCountriesApi();
   }, []);
