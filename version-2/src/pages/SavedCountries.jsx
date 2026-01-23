@@ -1,13 +1,31 @@
 import { useState, useEffect } from "react";
+import CountryCard from "../components/CountryCard";
 
-export default function SavedCountries() {
+export default function SavedCountries({ countriesData }) {
   const [newestUserData, setNewestUserData] = useState(null);
+  const [savedCountriesNames, setSavedCountriesNames] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     country: "",
     bio: "",
   });
+  const getAllSavedCountries = async () => {
+    try {
+      const response = await fetch("/api/get-all-saved-countries", {
+        method: "GET",
+      });
+      const data = await response.json();
+      console.log("response from api", data);
+      setSavedCountriesNames(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAllSavedCountries();
+  }, []);
+  // api call to retrieve newest user data
   const getNewestUserData = async () => {
     try {
       const response = await fetch("/api/get-newest-user", {
@@ -48,8 +66,21 @@ export default function SavedCountries() {
     // value is what the user typed
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   }
+  const savedCountries = savedCountriesNames.map((savedCountry) => {
+    return countriesData.find(
+      (country) => savedCountry.country_name === country.name.common,
+    );
+  });
+  console.log("full object of saved countries", savedCountries);
   return (
     <div className="saved-countries">
+      <div className="CountryCardContainer">
+        {savedCountries.map((savedCountry) => {
+          return <CountryCard country={savedCountry} key={savedCountry.cca3} />;
+        })}
+      </div>
+      {/* conditional statement if newestUserData has value then render h2, 
+      else render nothing */}
       {newestUserData && <h2>Welcome {newestUserData.name}</h2>}
       <h1>My Saved Countries</h1>
       <h2>My Profile</h2>

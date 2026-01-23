@@ -17,7 +17,7 @@ function App() {
     try {
       // await keywords waits for async operations to commplete
       const response = await fetch(
-        `https://restcountries.com/v3.1/all?fields=name,flags,population,capital,region,cca3,borders`
+        `https://restcountries.com/v3.1/all?fields=name,flags,population,capital,region,cca3,borders`,
       );
       // store api response in data variable
       const data = await response.json();
@@ -52,7 +52,10 @@ function App() {
       <Routes>
         {/* pass data to home component using countriesData as prop */}
         <Route path="/" element={<Home countriesData={countries} />} />
-        <Route path="/saved-countries" element={<SavedCountries />} />
+        <Route
+          path="/saved-countries"
+          element={<SavedCountries countriesData={countries} />}
+        />
         {/* country-detail is url, the : denotes route paramter countryName = name.common */}
         <Route
           path="/country-detail/:countryName"

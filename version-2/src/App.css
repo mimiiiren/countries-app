@@ -50,7 +50,7 @@ header ul a {
 .card img {
   display: block;
   max-height: 200px;
-  max-width: 100%;
+  width: 100%;
   border-radius: 5px 5px 0 0;
 }
 .card-content {

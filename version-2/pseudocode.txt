@@ -54,9 +54,9 @@ RESPONSE: Success! User has been added.
 ❓ WHERE: savedCountries page
 
 ❓ HOW:
-Step 1: ------
-Step 2: ------
-Step 3: ------
+Step 1: user fills out form and submits
+Step 2: async function to fetch from api endpoint with post method and request body
+Step 3: new user stored as object in api
 Add more steps as needed!
 
 ========================
@@ -86,7 +86,7 @@ RESPONSE: [
 ❓ WHERE: savedCountries page loads
 
 ❓ HOW:
-Step 1: user fills and submut forms
+Step 1: user fills and submits form
 Step 2: create async function getNewestUserData that uses fetch() to send GET request
 to /get-newest-user endpoint. save to state var newestUserData
 Step 3: useEffect to call getNewestUserData() on page load
@@ -114,14 +114,14 @@ REQUEST BODY (if applicable):
 RESPONSE DATA TYPE: string
 RESPONSE: Success! The country is saved.
 
-❓ WHEN: ------
+❓ WHEN: After user clicks save button on CountryDetail Page
 
-❓ WHERE: ------
+❓ WHERE: CountryDetail Page
 
 ❓ HOW:
-Step 1: ------
-Step 2: ------
-Step 3: ------
+Step 1: user clicks save button
+Step 2: onClick function for button to send post request to api with country_name in request body 
+Step 3: api stores saved country_name as object
 Add more steps as needed!
 
 ========================
@@ -129,23 +129,33 @@ Add more steps as needed!
 ========================
 
 ❓ WHAT...
-TYPE OF HTTP REQUEST (GET OR POST): ------
-API ENDPOINT: ------
+TYPE OF HTTP REQUEST (GET OR POST): GET
+API ENDPOINT: /get-all-saved-countries
 
-REQUEST BODY DATA TYPE (if applicable): ------
-REQUEST BODY (if applicable): ------
+REQUEST BODY DATA TYPE (if applicable): N/A
+REQUEST BODY (if applicable): N/A
 
-RESPONSE DATA TYPE: ------
-RESPONSE: ------
+RESPONSE DATA TYPE: array of objects
+RESPONSE: 
+[
+  {
+    "country_name": "Japan"
+  },
+  {
+    "country_name": "Germany"
+  }
+]
 
-❓ WHEN: ------
+❓ WHEN: user clicks Saved Countries on top right corner
 
-❓ WHERE: ------
+❓ WHERE: SavedCountries page
 
 ❓ HOW:
-Step 1: ------
-Step 2: ------
-Step 3: ------
+Step 1: user clicks saved countries page
+Step 2: async function with get method to fetch saved countries array from api. store 
+in state variable savedCountries array
+Step 3: map through savedCountries and find country_name that matches countries array name.common property
+Step 4: render the savedCountries array as country cards to savedCountries page above the form element
 Add more steps as needed!
 
 =================================
@@ -158,21 +168,28 @@ Add more steps as needed!
 NOTE: We combine storing & retrieving country counts data into one section because they always happen together. Each time we look up a country’s view count, we also need to increase it and save the new total.
 
 ❓ WHAT...
-TYPE OF HTTP REQUEST (GET OR POST): ------
-API ENDPOINT: ------
+TYPE OF HTTP REQUEST (GET OR POST): POST
+API ENDPOINT: /update-one-country-count
 
-REQUEST BODY DATA TYPE (if applicable): ------
-REQUEST BODY (if applicable): ------
+REQUEST BODY DATA TYPE (if applicable): object
+REQUEST BODY (if applicable): 
+{
+  "country_name": "France"
+}
 
-RESPONSE DATA TYPE: ------
-RESPONSE: ------
+RESPONSE DATA TYPE: object
+RESPONSE: 
+{
+  "count": 3
+}
 
-❓ WHEN: ------
+❓ WHEN: user clicks a country card
 
-❓ WHERE: ------
+❓ WHERE: CountryDetail page
 
 ❓ HOW:
-Step 1: ------
-Step 2: ------
-Step 3: ------
+Step 1: create state variable count to track each time user clicks on a country card
+Step 2: create async function with POST method and request body with country_name 
+Step 3: create increaseCount function for when user clicks into countryCard, increase value of count by 1
+Step 4: render value of state variable count on CountryDetail page
 Add more steps as needed!
