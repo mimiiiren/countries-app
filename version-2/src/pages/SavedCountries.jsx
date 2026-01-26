@@ -16,7 +16,6 @@ export default function SavedCountries({ countriesData }) {
         method: "GET",
       });
       const data = await response.json();
-      console.log("response from api", data);
       setSavedCountriesNames(data);
     } catch (error) {
       console.log(error);
@@ -47,8 +46,25 @@ export default function SavedCountries({ countriesData }) {
     getNewestUserData();
   }, []);
 
+  const storeUserData = async (data) => {
+    const response = await fetch("/api/add-one-user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: data.name,
+        country_name: data.country,
+        email: data.email,
+        bio: data.bio,
+      }),
+    });
+    const result = await response.text();
+  };
   function handleSubmit(e) {
     e.preventDefault();
+    // calls api POST request with formData as argument
+    storeUserData(formData);
     // this resets the form to its initial state so it can be used by next user
     setFormData({
       name: "",
@@ -71,7 +87,6 @@ export default function SavedCountries({ countriesData }) {
       (country) => savedCountry.country_name === country.name.common,
     );
   });
-  console.log("full object of saved countries", savedCountries);
   return (
     <div className="saved-countries">
       <div className="CountryCardContainer">

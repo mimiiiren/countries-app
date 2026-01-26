@@ -49,14 +49,16 @@ REQUEST BODY (if applicable): {
 RESPONSE DATA TYPE: string
 RESPONSE: Success! User has been added.
 
-❓ WHEN: user fills out form
+❓ WHEN: user submits form
 
-❓ WHERE: savedCountries page
+❓ WHERE: storeUserData() function will be called in handleSubmit() function
 
 ❓ HOW:
-Step 1: user fills out form and submits
-Step 2: async function to fetch from api endpoint with post method and request body
-Step 3: new user stored as object in api
+Step 1: create function for storing Form data called storeUserData(),
+async function to fetch from api endpoint with post method and request body
+Step 2: parameter with data, make sure form property names all match correctly
+Step 3: call storeUserData() in handleSubmit function
+Step 4: new user stored as object in api and rendered as Welcome, newUser!
 Add more steps as needed!
 
 ========================
