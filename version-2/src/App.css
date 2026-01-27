@@ -32,7 +32,7 @@ header ul a {
 }
 .CountryCardContainer {
   display: grid;
-  width: 90%;
+  max-width: 90%;
   grid-template-columns: 1fr;
   margin: auto;
 }
@@ -103,13 +103,17 @@ width: 90%;
 margin: 2rem auto;
 }
 .country-detail button {
-  width: 90px;
-  height: 30px;
+  margin-bottom: 1rem;
+  width: 100px;
+  height: 40px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 2px rgb(210, 209, 209);
   border: solid 2px rgb(210, 209, 209);
   cursor: pointer;
+}
+.country-detail button:hover {
+  background-color: rgb(234, 232, 232);
 }
 @media (min-width: 540px) {
   .CountryCardContainer {
