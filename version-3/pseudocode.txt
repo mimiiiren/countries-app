@@ -48,7 +48,7 @@ UPDATE animals SET name = $1 WHERE id = $2
 🔹 GET /get-newest-user  
 Description: Retrieves the most recently added user. 
 Your SQL command: 
-SELECT * FROM users ORDER BY id DESC LIMIT 1
+SELECT * FROM users ORDER BY user_id DESC LIMIT 1
 
 
 🔹 GET /get-all-users  
