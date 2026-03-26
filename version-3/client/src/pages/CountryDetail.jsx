@@ -10,6 +10,7 @@ export default function CountryDetail({ countriesData }) {
     (country) => country.name.common === countryName,
   );
   const { name, population, region, capital, flags } = detailedCountry;
+  console.log("flags", detailedCountry.flags.png);
   function toggleHeart() {
     setIsSaved(!isSaved);
     if (isSaved === true) {
@@ -42,6 +43,20 @@ export default function CountryDetail({ countriesData }) {
   useEffect(() => {
     storeCountryCount();
   }, []);
+
+  const resetOneCountryCount = async () => {
+    const response = await fetch("/api/reset-one-country-count", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        country_name: name.common,
+      }),
+    });
+    const result = await response.json();
+    setCountryViewCounts(result.count);
+  };
   const storeSavedCountries = async () => {
     const response = await fetch("/api/save-one-country", {
       method: "POST",
@@ -101,7 +116,12 @@ export default function CountryDetail({ countriesData }) {
           <p>Population: {population.toLocaleString()}</p>
           <p>Region: {region}</p>
           <p>Capital: {capital}</p>
-          <p>Viewed: {countryViewCounts}</p>
+          <div className="resetParent">
+            <p> Viewed: {countryViewCounts} </p>
+            <button onClick={resetOneCountryCount} className="resetButton">
+              ↺
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -103,7 +103,6 @@ width: 90%;
 margin: 2rem auto;
 }
 .country-detail button {
-  margin-bottom: 1rem;
   width: 100px;
   height: 40px;
   background-color: white;
@@ -114,6 +113,26 @@ margin: 2rem auto;
 }
 .country-detail button:hover {
   background-color: rgb(234, 232, 232);
+}
+.resetParent {
+display: flex;
+align-items: center;
+gap: 2rem;
+margin: 0;
+}
+.resetParent .resetButton {
+  visibility: hidden;
+  width: 30px;
+  height: 30px;
+  background-color: none;
+  border-radius: 5px;
+  box-shadow: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 2px rgb(210, 209, 209);
+  border: solid 2px rgb(210, 209, 209);
+}
+.resetParent:hover .resetButton {
+  visibility: visible;
 }
 @media (min-width: 540px) {
   .CountryCardContainer {

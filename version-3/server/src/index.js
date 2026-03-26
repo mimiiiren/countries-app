@@ -55,9 +55,13 @@ async function unsaveOneCountry(country_name) {
 // 📊 COUNTRY COUNTS
 // -------------------------------------
 async function updateOneCountryCount(country_name) {
-    const result = await db.query("INSERT INTO country_counts (country_name, count) VALUES ($1, 1) ON CONFLICT (country_name) DO UPDATE SET count = country_counts.count + 1 RETURNING COUNT",
+    const result = await db.query("INSERT INTO country_counts (country_name, count) VALUES ($1, 1) ON CONFLICT (country_name) DO UPDATE SET count = country_counts.count + 1 RETURNING count",
         [country_name],);
-    return result.rows;
+    return result.rows[0];
+}
+async function resetOneCountryCount(country_name) {
+    const result = await db.query("INSERT INTO country_counts (country_name, count) VALUES ($1, 1) ON CONFLICT (country_name) DO UPDATE SET count = 0 RETURNING count", [country_name],);
+    return result.rows[0];
 }
 
 // users
@@ -96,5 +100,11 @@ app.post("/unsave-one-country", async (req, res) => {
 app.post("/update-one-country-count", async (req, res) => {
     const { country_name } = req.body;
     const count = await updateOneCountryCount(country_name)
+    res.json(count);
+})
+
+app.post("/reset-one-country-count", async (req, res) => {
+    const { country_name } = req.body;
+    const count = await resetOneCountryCount(country_name)
     res.json(count);
 })
