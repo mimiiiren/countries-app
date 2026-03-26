@@ -24,6 +24,7 @@ export default function SavedCountries({ countriesData }) {
   useEffect(() => {
     getAllSavedCountries();
   }, []);
+
   // api call to retrieve newest user data
   const getNewestUserData = async () => {
     try {
@@ -31,7 +32,7 @@ export default function SavedCountries({ countriesData }) {
         method: "GET",
       });
       const data = await response.json();
-      const userData = data[0];
+      const userData = data;
       setNewestUserData({
         name: userData.name,
         email: userData.email,
@@ -44,7 +45,7 @@ export default function SavedCountries({ countriesData }) {
   };
   useEffect(() => {
     getNewestUserData();
-  }, []);
+  }, [newestUserData]);
 
   const storeUserData = async (data) => {
     const response = await fetch("/api/add-one-user", {
@@ -74,7 +75,7 @@ export default function SavedCountries({ countriesData }) {
     });
   }
   function handleChange(e) {
-    // takes the name attribute and value, or what the user typed
+    // extracts name attribute and value, or what the user typed
     const { name, value } = e.target;
 
     // spread operator prevFormData makes a copy of whats stored in formData
@@ -94,8 +95,7 @@ export default function SavedCountries({ countriesData }) {
           return <CountryCard country={savedCountry} key={savedCountry.cca3} />;
         })}
       </div>
-      {/* conditional statement if newestUserData has value then render h2, 
-      else render nothing */}
+      {/* only if newestUserData has value, render h2 */}
       {newestUserData && <h2>Welcome {newestUserData.name}</h2>}
       <h1>My Saved Countries</h1>
       <h2>My Profile</h2>

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 export default function CountryDetail({ countriesData }) {
   const [countryViewCounts, setCountryViewCounts] = useState();
-  // bonus for saved and unsaved button
   const [isSaved, setIsSaved] = useState(null);
   const countryName = useParams().countryName;
   // find method iterates through each item in countriesData to find name.common === countryName (url parameter)
@@ -19,32 +18,7 @@ export default function CountryDetail({ countriesData }) {
       storeSavedCountries();
     }
   }
-  const storeSavedCountries = async () => {
-    const response = await fetch("/api/save-one-country", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        country_name: name.common,
-      }),
-    });
-    // converts response to plain text (not string or json). when the response is just a confirmation msg
-    const result = await response.text();
-  };
-  const storeUnsavedCountry = async () => {
-    const response = await fetch("/api/unsave-one-country", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        country_name: name.common,
-      }),
-    });
-    const result = await response.text();
-  };
-
+  // full explanation of POST request from client side
   const storeCountryCount = async () => {
     // fetch the url as first argument in (), {options object has 2 properties: method and headers}
     // store in response because fetch is the request to api and it then returns an entire HTTP response
@@ -65,17 +39,42 @@ export default function CountryDetail({ countriesData }) {
     // setter function updates countryViewCounts to result and accesses count property in order to render correct jsx format
     setCountryViewCounts(result.count);
   };
-  // GET method for all saved countries, to connect ❤️ with api data
   useEffect(() => {
     storeCountryCount();
   }, []);
+  const storeSavedCountries = async () => {
+    const response = await fetch("/api/save-one-country", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        country_name: name.common,
+      }),
+    });
+    const result = await response.text();
+  };
+  const storeUnsavedCountry = async () => {
+    const response = await fetch("/api/unsave-one-country", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        country_name: name.common,
+      }),
+    });
+    const result = await response.text();
+  };
+
+  // GET method for all saved countries, to connect ❤️ with api data
   const getAllSavedCountries = async () => {
     try {
       const response = await fetch("/api/get-all-saved-countries", {
         method: "GET",
       });
       const data = await response.json();
-      // some checks if api country_name is same as name.common, returns true
+      // .some checks if api country_name is same as name.common, returns true
       const isCountrySaved = data.some(
         (savedName) => savedName.country_name === name.common,
       );
@@ -84,7 +83,6 @@ export default function CountryDetail({ countriesData }) {
       console.log(error);
     }
   };
-  console.log("true or false for isSaved", isSaved);
   useEffect(() => {
     getAllSavedCountries();
   }, []);
@@ -100,8 +98,6 @@ export default function CountryDetail({ countriesData }) {
           <button onClick={toggleHeart} style={{ fontSize: "20px" }}>
             {isSaved ? "❤️" : "🩶"}
           </button>
-          {/* <button onClick={handleSave}>Save</button>
-          <button onClick={handleUnsave}>Unsave</button> */}
           <p>Population: {population.toLocaleString()}</p>
           <p>Region: {region}</p>
           <p>Capital: {capital}</p>
