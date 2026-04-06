@@ -1,10 +1,75 @@
-Countries Explorer (Version 2)
+<!-- # 📝 Writing a README
 
-A React web application that displays information about countries around the world. Users can search, filter, view details, and save their favorite countries.
+A well-written README helps others (and your future self!) understand, use, and appreciate your project. Here’s a quick guide to writing one.
 
-## Features
+## 📌 What is a README?
 
-- **Browse Countries**: View all 250+ countries with population, region, and capital information
+A `README.md` is usually the **first** thing someone sees in your repo. It gives an **overview** of what your **project** is about, how to use it, and how it works.
+
+You spent hours on your project — spend at least 30 minutes writing a clear README.
+It’s your chance to tell the world what your hard work is all about!
+
+## 🧹 Tips
+
+- Don’t overthink it! Just explain your project clearly
+- Use headers, bullet points, and links to keep it easy to read
+- Update the README if your project changes
+
+## 🎨 Markdown Formatting Tips
+
+README files use **Markdown** (`.md`) to style content.
+
+### Common Markdown formatting:
+
+```markdown
+# H1 (Main title)
+## H2 (Section)
+### H3 (Subsection)
+
+**bold text**  
+_italic text_  
+`inline code`  
+
+- bullet points
+1. numbered lists
+
+[Link text](https://example.com)
+
+![Alt text for image](./images/image.png)
+```
+
+# Fill Out the Template Below ⬇️ 
+Once you're done filling out the template, paste it into your Github repo's main `README.md` file! 
+
+--- -->
+
+# 📝 Countries App
+
+## 📌 Project Description & Purpose
+
+This project helps users view, save, and keep track of 250+ countries.
+
+## 🚀 Live Site
+
+Here's the link to view the live app: ___________
+
+## 🖼️ Screenshots
+
+Here is where you'll include a screenshot of your project to show it off! 
+
+Instructions to include a screenshot into your README file: 
+
+1. Use `Command + Control + Shift + 4` to take a screenshot of your site and copy the screenshot to your clipboard 
+2. Find your Github `README.md` file on the Github website
+3. Edit the site by clicking on the Pencil icon on the top right of the page ✏️
+4. Move your cursor to the position where you want to paste the screenshot, then paste it. Github will convert the pasted screenshot into an `<img>` tag
+5. Select "Commit changes..." to save your changes 
+
+## ✨ Features
+
+This is what you can do on the app: 
+
+- **Browse Countries**: View all 250+ countries with population, region, and other information
 - **Search Functionality**: Real-time search by country name (case-insensitive)
 - **Country Details**: View detailed information including flags, population, region, and capital
 - **Alphabetical Sorting**: Countries are automatically sorted alphabetically for easy browsing
@@ -12,84 +77,66 @@ A React web application that displays information about countries around the wor
 - **View Tracking**: Track how many times each country has been viewed
 - **User Profile**: Submit and display user information
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- React
-- React Router
-- CSS3
+**Frontend**
 
-## Installation
+- **Languages:** React JS
 
-1. Clone the repository
-```bash
-git clone https://github.com/mimiiiren/countries-app.git
-cd countries-app
-```
+**Server/API**
 
-2. Install dependencies
-```bash
-npm install
-```
+- **Languages:** Node.js
+- **Framework:** Express
+- **Deployment:** Neon Database
 
-3. Start the development server
-```bash
-npm start
-```
-## Usage
+**Database**
 
-- **Home Page**: Browse all countries, sorted alphabetically
-- **Search**: Type in the search bar to filter countries by name
-- **View Details**: Click any country card to see detailed information
-- **Save Countries**: Click the "Save" button on the detail page
-- **Saved Countries**: View your saved countries from the navigation menu
-- **Profile Form**: Submit your information on the Saved Countries page
+- **Languages:** PostgresQL
+- **Deployment:** Neon Database
 
-## API Integration
+## 🔹 API Documentation
 
-The app connects to a backend API to:
-- Store and retrieve user profile data
-- Save and fetch favorite countries
-- Track and update country view counts
-
-API endpoints used:
+These are the API endpoints I built: 
 - `POST /api/save-one-country` - Save a country
 - `GET /api/saved-countries` - Retrieve saved countries
 - `POST /api/update-one-country-count` - Update view count
 - `POST /api/create-user` - Store user profile
 - `GET /api/get-newest-user` - Retrieve user profile
-- 
-## Project Structure
+
+## 🗄️ Database Schema
+
+Here’s the SQL I used to create my tables:  
+
+```sql
+CREATE TABLE saved_countries (
+  saved_country_id SERIAL PRIMARY KEY,
+country_name VARCHAR NOT NULL UNIQUE
+  );
+  CREATE TABLE country_counts (
+  country_count_id SERIAL PRIMARY KEY,
+country_name VARCHAR NOT NULL UNIQUE,
+count INTEGER NOT NULL);
+CREATE TABLE users  (
+user_id SERIAL PRIMARY KEY,
+name VARCHAR NOT NULL,
+country_name VARCHAR NOT NULL,
+email VARCHAR NOT NULL UNIQUE,
+bio VARCHAR
+);
 ```
-countries-app/
-├── src/
-│   ├── components/
-│   │   ├── CountryCard.jsx
-│   │   └── Navbar.jsx
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── CountryDetail.jsx
-│   │   └── SavedCountries.jsx
-│   ├── App.jsx
-│   └── index.js
-├── public/
-└── package.json
-```
 
-## Design
+## 💭 Reflections
 
-UI designs are based on https://www.figma.com/design/YuEMNteoQic0h6RRiYprpV/Countries-API-Project?node-id=1404-2&p=f&t=poZFtjQPRA5vJqIp-0
+**What I learned:** How to create a database, the server and then connect it to the frontend.
 
-## Author
+**What I'm proud of:** My first complete full-stack app!
 
-Mimi Ren
+**Future ideas for how I'd continue building this project:** 
+1. Travel app that keeps track of countries you have visited
+2. Share profiles, saved countries with other users
 
-## Acknowledgments
+## 🙌 Credits & Shoutouts 
 
-- AnnieCannons for project guidance and instruction
-- REST Countries API for providing country data
-- 
-### Upcoming (v3.0)
-- 🔜 Backend API with Express and Node.js
-- 🔜 PostgreSQL database integration
-- 🔜 Save favorite countries functionality
-- 🔜 View count tracking
+If you used any resources for inspiration, tutorials, or documentation, you can mention them here.
+You can also give a shoutout to anyone who helped you along the way.
+
