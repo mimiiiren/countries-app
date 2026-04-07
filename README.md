@@ -1,57 +1,13 @@
-<!-- # 📝 Writing a README
-
-A well-written README helps others (and your future self!) understand, use, and appreciate your project. Here’s a quick guide to writing one.
-
-## 📌 What is a README?
-
-A `README.md` is usually the **first** thing someone sees in your repo. It gives an **overview** of what your **project** is about, how to use it, and how it works.
-
-You spent hours on your project — spend at least 30 minutes writing a clear README.
-It’s your chance to tell the world what your hard work is all about!
-
-## 🧹 Tips
-
-- Don’t overthink it! Just explain your project clearly
-- Use headers, bullet points, and links to keep it easy to read
-- Update the README if your project changes
-
-## 🎨 Markdown Formatting Tips
-
-README files use **Markdown** (`.md`) to style content.
-
-### Common Markdown formatting:
-
-```markdown
-# H1 (Main title)
-## H2 (Section)
-### H3 (Subsection)
-
-**bold text**  
-_italic text_  
-`inline code`  
-
-- bullet points
-1. numbered lists
-
-[Link text](https://example.com)
-
-![Alt text for image](./images/image.png)
-```
-
-# Fill Out the Template Below ⬇️ 
-Once you're done filling out the template, paste it into your Github repo's main `README.md` file! 
-
---- -->
-
-# 📝 Countries App
+# 📝 Global Explorer: Full-Stack Countries Encyclopedia
 
 ## 📌 Project Description & Purpose
 
-This project helps users view, save, and keep track of 250+ countries.
+A comprehensive full-stack application that allows users to explore global data and manage a personalized list of "Saved Countries." This project represents the Full-Stack Capstone of my 12-month intensive training at AnnieCannons, tracking my progression from a static UI to a fully deployed PERN stack (PostgreSQL, Express, React, Node.js) architecture.
+
 
 ## 🚀 Live Site
 
-Here's the link to view the live app: ___________
+Here's the link to view the live app: https://countries-app-mimi-version4.netlify.app/
 
 ## 🖼️ Screenshots
 
@@ -81,18 +37,18 @@ This is what you can do on the app:
 
 **Frontend**
 
-- **Languages:** React JS
+- **Languages:** React.js to allow for efficient state management and the reuse of UI elements across multiple views
 
 **Server/API**
 
-- **Languages:** Node.js
-- **Framework:** Express
-- **Deployment:** Neon Database
+- **Languages:** Node.js provided a consistent JavaScript environment across the entire stack
+- **Framework:** Express was selected for its minimalist framework, giving me the flexibility to build custom middleware for request validation and error handling
+- **Deployment:** Netlify
 
 **Database**
 
-- **Languages:** PostgresQL
-- **Deployment:** Neon Database
+- **Languages:** PostgreSQL was chosen for its ability to handle complex relational data and ensure data integrity
+- **Deployment:** Neon Database (Serverless Postgres)
 
 ## 🔹 API Documentation
 
@@ -127,7 +83,7 @@ bio VARCHAR
 
 ## 💭 Reflections
 
-**What I learned:** How to create a database, the server and then connect it to the frontend.
+**What I learned:** Building the full PERN stack shifted my perspective from writing isolated components to designing integrated systems. I now approach every feature by mapping the entire Data Lifecycle: from the PostgreSQL schema, through the Express API layer, to the React UI.
 
 **What I'm proud of:** My first complete full-stack app!
 
@@ -137,6 +93,5 @@ bio VARCHAR
 
 ## 🙌 Credits & Shoutouts 
 
-If you used any resources for inspiration, tutorials, or documentation, you can mention them here.
-You can also give a shoutout to anyone who helped you along the way.
+My amazing instructors, Phil and Arianna! 
 
