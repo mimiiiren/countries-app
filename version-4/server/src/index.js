@@ -2,7 +2,7 @@ import express from "express";
 import pg from "pg";
 
 const db = new pg.Pool({
-    connectionString: config.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
     ssl: true,
 });
 
