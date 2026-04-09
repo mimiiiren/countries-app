@@ -90,58 +90,56 @@ export default function SavedCountries({ countriesData }) {
   });
   return (
     <div className="saved-countries">
-      <div className="CountryCardContainer">
+      <h1>My Saved Countries</h1>
+      <div className="SavedCountriesContainer">
         {savedCountries.map((savedCountry) => {
           return <CountryCard country={savedCountry} key={savedCountry.cca3} />;
         })}
       </div>
       {/* only if newestUserData has value, render h2 */}
       {newestUserData && <h2>Welcome {newestUserData.name}</h2>}
-      <h1>My Saved Countries</h1>
       <h2>My Profile</h2>
-      <form onSubmit={handleSubmit} className="form">
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Full Name"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="text"
-          name="country"
-          id="country"
-          placeholder="Country"
-          value={formData.country}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="bio"
-          id="bio"
-          placeholder="Bio"
-          cols="62"
-          rows="10"
-          value={formData.bio}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <br />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="form">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Full Name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email"
+            required
+          />
+          <input
+            type="text"
+            name="country"
+            id="country"
+            placeholder="Country"
+            value={formData.country}
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            name="bio"
+            id="bio"
+            placeholder="Bio"
+            rows="8"
+            value={formData.bio}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
