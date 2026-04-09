@@ -37,12 +37,12 @@ This is what you can do on the app:
 
 - **Languages:** Node.js provided a consistent JavaScript environment across the entire stack
 - **Framework:** Express was selected for its minimalist framework, giving me the flexibility to build custom middleware for request validation and error handling
-- **Deployment:** Netlify
+- **Deployment:** Render
 
 **Database**
 
 - **Languages:** PostgreSQL was chosen for its ability to handle complex relational data and ensure data integrity
-- **Deployment:** Render
+- **Deployment:** Neon Database
 
 ## 🔹 API Documentation
 

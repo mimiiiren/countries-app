@@ -6,10 +6,10 @@ export default function Home({ countriesData }) {
   const filteredCountries = countriesData
     // implicit return without {}, must be one line
     .filter((country) =>
-      country.name.common.toLowerCase().includes(input.toLowerCase())
+      country.name.common.toLowerCase().includes(input.toLowerCase()),
     )
     .sort((countryA, countryB) =>
-      countryA.name.common.localeCompare(countryB.name.common)
+      countryA.name.common.localeCompare(countryB.name.common),
     );
 
   function handleInput(e) {
