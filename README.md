@@ -32,6 +32,7 @@ This is what you can do on the app:
 **Frontend**
 
 - **Languages:** React.js to allow for efficient state management and the reuse of UI elements across multiple views
+- **Deployment:** Netlify
 
 **Server/API**
 
