@@ -42,7 +42,7 @@ This is what you can do on the app:
 **Database**
 
 - **Languages:** PostgreSQL was chosen for its ability to handle complex relational data and ensure data integrity
-- **Deployment:** Neon Database (Serverless Postgres)
+- **Deployment:** Render
 
 ## 🔹 API Documentation
 
